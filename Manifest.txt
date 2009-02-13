@@ -1,0 +1,6 @@
+lib/clearance_crypto.rb
+lib/clearance_crypto/aes256.rb
+lib/clearance_crypto/sha512.rb
+lib/clearance_crypto/bcrypt.rb
+History.txt
+README.rdoc
