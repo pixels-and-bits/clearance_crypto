@@ -1,26 +1,42 @@
-= clearance_crypto
+= ClearanceCrypto
 
-* FIX (url)
+http://github.com/pixels-and-bits/clearance_crypto/tree/master
 
 == DESCRIPTION:
 
-FIX (describe your package)
-
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+Provides the ability to choose the encryption method used in the Clearance gem 
+like Authlogic
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+If you want to use a different hashing method than SHA1 with Clearance.
+
+You really shouldn't use AES for anything other than hiding info that you need
+to be able to reverse the hash. By default it uses the generated salt. You can
+override this behavior by setting the key before you create the user.
+
+  class User < ActiveRecord::Base
+    include Clearance::App::Models::User
+    include ClearanceCrypto::AES256
+  end
+  
+  class User < ActiveRecord::Base
+    include Clearance::App::Models::User
+    include ClearanceCrypto::BCrypt
+  end
+  
+  class User < ActiveRecord::Base
+    include Clearance::App::Models::User
+    include ClearanceCrypto::SHA512
+  end
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* Clearance
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+  sudo gem install clearance_crypto
 
 == LICENSE:
 
